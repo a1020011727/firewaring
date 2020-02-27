@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:firewaring/Login/loginpage.dart';
 void main() => runApp(new myApp());
 
 class myApp extends StatelessWidget{
@@ -8,7 +8,10 @@ class myApp extends StatelessWidget{
     // TODO: implement build
     return MaterialApp(
       title: "FireWarning",
-      theme: ,
+      theme: ThemeData(
+        primaryColor: Colors.black45
+      ),
+      home: loginPageWidget() ,
     );
   }
 }
