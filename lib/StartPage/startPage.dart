@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:firewaring/Login/loginpage.dart';
 import 'package:flutter/material.dart';
 
@@ -63,7 +62,8 @@ class startPageState extends State<startPageWidget>
 
   @override
   Widget build(BuildContext context) {
-
+  var h = MediaQuery.of(context).size.height;
+  var w = MediaQuery.of(context).size.width;
     // TODO: implement build
     return Stack(//层叠布局
       alignment: Alignment.bottomRight,//对齐方式右下角
