@@ -14,7 +14,7 @@ FocusNode passNode = new FocusNode();
 class loginPageState extends State<loginPageWidget> {
   TextEditingController _userNameController = new TextEditingController();
   TextEditingController _passWordController = new TextEditingController();
-
+  bool _checkbox = true;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class loginPageState extends State<loginPageWidget> {
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
-    bool _checkbox = false;
+
     // TODO: implement build
     return Scaffold(
       body: SingleChildScrollView(
@@ -72,14 +72,18 @@ class loginPageState extends State<loginPageWidget> {
                     }),
               ),
               Container(
+                margin: const EdgeInsets.only(top: 35),
                 child: Row(
                   children: <Widget>[
                     Checkbox(
                         value: _checkbox,
-                        activeColor: Colors.blue,
-                        onChanged: (value){
-                          _checkbox = value;
-                    })
+                        activeColor: Colors.red,
+                        onChanged: (v){
+                          setState(() {
+                            _checkbox = v;
+                          });
+                    }),
+                    Text("使用软件代表您同意软件准则和隐私条款")
                   ],
                 ),
               )
@@ -89,6 +93,7 @@ class loginPageState extends State<loginPageWidget> {
       ),
     );
   }
+
 }
 
 Widget createTextField(BuildContext context, String hintText, int type,

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:firewaring/Login/loginpage.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class startPageWidget extends StatefulWidget {
   @override
@@ -16,12 +17,26 @@ class startPageState extends State<startPageWidget>
   Animation _animation;//动画类，创建动画实例
   Timer _timer;//timer计时器实例
   int count = 3;//倒计时计数器
+  SharedPreferences sharedPreferences ;
 
-  void _goMain() {
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) {
-      return loginPageWidget();
-    }), (route) => route == null);
+
+
+  void _goMain() async{
+//    Navigator.of(context).pushAndRemoveUntil(
+//        MaterialPageRoute(builder: (context) {
+//      return loginPageWidget();
+//    }), (route) => route == null);
+  bool v;
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  v = await sharedPreferences.getBool('FirstRun');
+  print("$v");
+  if (v == null){
+    Navigator.of(context).pushNamedAndRemoveUntil("guidepage", (route) => route == null);
+  }
+  else if(!v){
+    Navigator.of(context).pushNamedAndRemoveUntil("login", (route) => route == null);
+  }
+
   }//跳转Login页面并销毁启动页方法
 
   @override
@@ -62,8 +77,6 @@ class startPageState extends State<startPageWidget>
 
   @override
   Widget build(BuildContext context) {
-  var h = MediaQuery.of(context).size.height;
-  var w = MediaQuery.of(context).size.width;
     // TODO: implement build
     return Stack(//层叠布局
       alignment: Alignment.bottomRight,//对齐方式右下角
@@ -71,7 +84,9 @@ class startPageState extends State<startPageWidget>
         FadeTransition(//透明动画组件
             child: Image.asset(
               "images/image2.jpeg",
-              fit: BoxFit.cover,//图片铺满
+              fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity//图片铺满
             ),
             opacity: _animation),//绑定动画
         Container(

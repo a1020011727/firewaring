@@ -1,4 +1,5 @@
 import 'package:firewaring/Login/loginpage.dart';
+import 'package:firewaring/StartPage/guide.dart';
 import 'package:firewaring/StartPage/startPage.dart';
 import 'package:firewaring/mainlib/mainPage.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class myApp extends StatelessWidget{
     return MaterialApp(
       routes: {
         "login":(context) => loginPageWidget(),
+        "guidepage":(context) => guidePage(),
         "mainpage":(context) => mainPage(),
       },
 
