@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   shared_preferences: ^0.5.3+4
+  dio: ^2.1.0
 
 
 dev_dependencies:
@@ -48,6 +49,12 @@ flutter:
     - images/page2.jpg
     - images/page3.jpg
     - images/page4.jpg
+    - images/tempture.png
+    - images/humidity.png
+    - images/smoke.png
+    - images/volte.png
+    - images/electricity.png
+    - images/shake.png
 
 
   # To add assets to your application, add an assets section, like this:
