@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   shared_preferences: ^0.5.3+4
   dio: ^2.1.0
+  flutter_swiper : ^1.1.6
+  charts_flutter : ^0.4.0
 
 
 dev_dependencies:
@@ -55,6 +57,7 @@ flutter:
     - images/volte.png
     - images/electricity.png
     - images/shake.png
+    - images/banner.jpg
 
 
   # To add assets to your application, add an assets section, like this:
